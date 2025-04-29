@@ -1,0 +1,952 @@
+/* Esta hoja de estilo, al igual que el proyecto, es una combinación del tutorial de Raúl
+en Youtube, sumado a detalles de otros portfolios que había seleccionado online porque
+me gustaba algún aspecto de los mismos.
+He ido incorporando todo, probando poco a poco el resultado y la responsividad,
+hasta completar los requisitos del ejercicio.
+
+Debo señalar que buena parte ha sido un ejercicio de prueba y error, cambiando valores
+en ciertas clases, reutilizando partes que funcionan bien en los distintos html.
+
+Aunque dista mucho de lo que me gustaría crear como landing page profesional,
+creo que es un buen punto de partida para entender mejor algunas funciones
+y etiqueta que hemos visto en clase por encima.*/
+
+/* IMPORTACIÓN DE FUENTES */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* CONFIGURACIÓN GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+}
+
+/*CUERPO GENERAL DE LA ESTRUCTURA*/
+
+/*He establecido el boy igual para todas las secciones,
+con un fondo que he elaborado en photoshop con la paleta de
+color que he elegido para mi diseño.
+Este body debe ser siempre igual, y centrar el resto de elementos
+hacia el centro.*/
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url("../img/landBackImgMatcha.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.4em;
+    margin-bottom: 2em;
+}
+
+
+/*Contenido landing page y general*/
+/*Aquí quería crear un recuadro gris que sería la base del diseño, con la navegación integrada
+y el resto de elementos dentro, dando un aspecto coeherente a todas las secciones del sitio.
+He reducido el espacio que ocupa en el campo de visión para que se aprecie el 'marco' de
+color verde que creé como fondo.
+También le he puesto una sombra para que destaque un poco y quede mejor*/
+.contenedorprincipal{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+    width: 80vw;
+    height: 85vh;
+    background-color: rgb(59, 59, 59);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+    padding: 1.5em;
+    color: white;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin-top: 3em;
+}
+
+/*ENCABEZADO - HEADER*/
+/*La navegación va integrada en el recuadro gris, con un menú que siempre aparece igual,
+con letras en blanco, y marcado en tono frambuesa para indicar en qué sección estamos.
+Busqué cómo añadir la línea que aparece con el hover, con el left, transform y translateX
+para conseguir qe surja desde el centro de ese elemento.
+*/
+header {
+    width: 100%;
+    padding: 1em 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+header .logo{
+    color: white;
+    font-size: 1.5em;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5em 0.5em;
+    font-family: 'Nunito';
+    justify-self:left;
+}
+
+header .logo span{
+    color: rgb(162 202 168); 
+}
+
+header .navbar {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;    
+    margin: 0;
+    padding: 0;
+    margin-right: 1.1em;
+}
+
+header .navbar li a{
+    position: relative;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 8px 12px;
+    transition: color 0.3s ease;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    color: white;
+}
+
+header .navbar li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 0.2em;
+    width: 0;
+    background-color: white;
+    transition: width 0.4s ease-in-out;
+}
+
+/*Esto permite que la barra NO se muestre al pasar
+el cursor por la sección en la que estamos,
+para que no haya confusión para el usuario
+sobre dónde se encuentra.*/
+header .navbar li a:not(.seccionactiva):hover::after {
+    width: 100%;
+}
+
+/*Esto marca de un color diferente la sección del menú
+en la que está el usuario, me pareció que era una buena pista
+visual para orientar la navegación.*/
+header .navbar li a.seccionactiva{
+    position: relative;
+    text-decoration: none;
+    color: rgb(212, 81, 125);
+    font-weight: 700;
+    padding: 8px 12px;
+    font-size: 1.2em;
+    text-transform: uppercase;
+}
+
+
+.contenedorcontenido {
+    display: flex;
+    /*Esto permite que el elemento se agrande o se encoja según el espacio
+    así ocupa el sitio disponible dentro del contendor que lo contiene.*/
+    flex: 1;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cajaizquierda {
+    padding: 1em;
+    margin-left: 1em;
+    /*Box-sizing con border box permite ajustar el contenido
+    teneiendo en cuenta el padding y el border que le pongamos,
+    tuve que incluirlo para que no se me descuadrasen algunos elementos.*/
+    box-sizing: border-box;
+}
+
+.cajaizquierda .botonhablemos{
+    margin-top: 0.5em;
+    padding: 12px 30px; 
+    background-color: rgb(74, 106, 79); 
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border: none; 
+    text-align: center; 
+    font-size: 1.5em; 
+    display: inline-block; 
+    transition: background-color 0.3s ease;
+}
+
+.cajaizquierda .botonhablemos:hover{
+    background-color: rgb(222, 143, 168);
+}
+
+/*He ajustado tamaños y pesos como lo hizo Raúl, para
+que haya dinamismo entre títulos en el diseño.*/
+.cajaizquierda h1{
+    font-size: 2.1em;
+    font-weight: 600;
+}
+
+.cajaizquierda h2{
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+.cajaizquierda h3{
+    font-size: 1.2em;
+}
+
+.cajaizquierda p{
+    font-size: 1.3em;
+    font-weight: 300;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    color: white;
+}
+
+/*La caja derecha y la imagen tienen aquí su código, 
+con todo centrado y */
+.cajaderecha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cajaderecha img {
+    max-width: 60%;
+    max-height: 60%;
+    /*Con object-fit contain, evito que la imagen sea demasido grande
+    y me descuadre el resto del diseño*/
+    object-fit: contain;
+}
+
+.socials {
+    margin-top: 2em;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.socials ul{
+    display: flex;
+    gap: 1.1em;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.socials li{
+   font-size: 1.3em;
+   transition: 0.3s;
+}
+
+.socials li a{
+  color: white;
+   font-size: 2em;
+   transition: 0.3s;
+}
+
+/*El cambio de color de las redes es muy sutil, pero
+exagerarlo más pe parecía que quedaba feo.*/
+.socials li:hover a{
+    color:rgb(209, 209, 209);
+  }
+
+.copyright {
+    text-align: center; 
+    width: 100%; 
+    margin-top: 2em;
+    margin-right: 2em;
+}
+
+.copyright p{
+    color: white;
+    font-size: 0.9em;
+}
+
+/*Esta parte es para los links de atribución de los iconos que
+he usado como favicon y para los idiomas en el CV*/
+.atribution {
+    display: flex;
+    justify-content:flex-end;
+    align-items: right;
+    color: lightgray;
+    margin-top: -1em;
+}
+
+.atribution a  {
+    text-align: right;
+    color: lightgray;
+    font-size: 0.8em;
+    padding-left: 2em;
+}
+
+
+/*SECCION -- SOBRE MI -- ABOUT ME*/
+/*He ido reutilizando clases en otras secciones de la web,
+cambiando aquellas en las que tenía que ajustar el contenido
+de otra forma o los elementos no cabían bien si usaba el original*/
+.contenedorcontenidoaboutme {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    padding: 2em;
+}
+
+.cajaizquierdaaboutme {
+    max-width: 100%;
+    height: auto;
+}
+
+.cajaizquierdaaboutme img{
+    max-width: 100%;
+    height: auto;
+    border: solid 0.5em rgb(74, 106, 79);
+}
+
+.cajaderechaaboutme {
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start;
+    align-items: flex-start; 
+    padding: 1em;
+    padding-right: 3em;
+    width: 60%;
+}
+
+.cajaderechaaboutme h1{
+    font-size: 2.1em;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+}
+
+.cajaderechaaboutme h2{
+    font-size: 1.5em;
+    font-weight: 300;
+    margin-bottom: 0.5em;
+}
+
+.cajaderechaaboutme h3{
+    font-size: 1.2em;
+}
+
+.cajaderechaaboutme span{
+    font-weight: 300;
+    margin-bottom: 0.5em;
+    color: rgb(222, 143, 168);
+}
+
+.cajaderechaaboutme p{
+    font-size: 1.3em;
+    margin-top: 1em;  
+    margin-bottom: 1.5em; 
+    color: #333; 
+    background-color: rgb(209 209 209); 
+    padding: 1em;
+    text-align: justify;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+
+/*CV*/
+.contenedorprincipalcv{
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    margin: 2em;
+    background-color: rgb(59, 59, 59);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+    padding: 1.5em;
+    color: white;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+/*Tuve que modificar un poco el header, porque al tener debajo un contenido tan amplio,
+se movía de sitio y no se veía bien*/
+.contenedorprincipalcv header {
+    width: 100%;
+    padding: 0em 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+/*También tuve que especificar cambios en el body para esta sección,
+porque la plantilla que quería usar no encajaba del todo en diseño,
+y al final tuve que ir imitando partes y haciendo que encajaran en mi
+contenedor con un poco más de coherencia*/
+body.cvbody{
+    display: block;
+    height: auto;
+    background-image: url("../img/landBackImgMatcha.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+body.cvbody section {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.contenedorcontenidocv {
+    display: block;
+    width: 100%;
+}
+
+.cvformato {
+    width: 100%;
+    background: white;
+    margin: 2em 0;
+    display: grid;
+    /*esto sirve para marcar el ancho de las columnas que componen el CV*/
+    grid-template-columns: 1fr 2fr;
+}
+
+.cvizq {
+    background:rgb(74, 106, 79);
+    padding: 2.2em;
+}
+
+.cvpresentacion {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 1.5em;
+    border-bottom: 0.2em solid rgb(59, 59, 59);
+}
+
+.cvpresentacion .cvimg {
+    position:relative;
+    width: 200px;
+    height: 200px;
+    overflow:hidden;
+}
+
+.cvpresentacion .cvimg img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cvpresentacion h2 {
+    color: rgb(209, 209, 209);
+    font-size: 1.5em;
+    margin-top: 0.5em;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+    line-height: 1.4em;
+}
+
+.cvpresentacion h2 span{
+    font-size: 0.8em;
+}
+
+.cvcontacto{
+    padding: 1.5em;
+}
+
+.cvtitulos {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-bottom: 1em;
+}
+
+.cvcontacto ul{
+    position: relative;
+}
+
+.cvcontacto ul li{
+    position: relative;
+    list-style: none;
+    margin: 10px 0;
+}
+
+.cvcontacto ul li .icon{
+    display: inline-block;
+    width: 1em;
+    font-size: 1.2em;
+    color: white;
+}
+
+.cvcontacto ul li span {
+    color: white;
+    font-weight: 300;
+}
+
+.cvcontenedor .cvderch{
+    position: relative;
+    background: white;
+    padding: 1.2em;
+}
+
+.cvderch {
+    padding: 2em;
+}
+
+.formexp {
+    margin-bottom: 2em;
+}
+
+.tituloscv {
+    color:rgb(212, 81, 125);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.4em;
+    margin-top: 0.6em;
+}
+
+p {
+    color: rgb(59, 59, 59);
+}
+
+.formexp .recuadr {
+    display:flex ;
+    flex-direction: row;
+    margin: 0.3em 0;
+}
+.formexp .recuadr .aniolugar {
+    min-width: 10em;
+    margin-top:0.5em;
+    margin-bottom:0.5em;
+    margin-right: 1.1em;
+}
+
+.formexp .recuadr .aniolugar h5 {
+    text-transform: uppercase;
+    color: grey;
+    font-weight: 600;
+}
+
+.formexp .recuadr .text h4{
+    text-transform: uppercase;
+    color: rgb(222, 143, 168);
+    font-size: 17px;
+    margin-top: 0.4em;
+    margin-bottom: 0.3em;
+}
+
+.iconoshabil {
+    display: flex;
+    /*Esto he visto que sirve parapasar los elementos hijos a la línea
+    a continuación si no caben en una sola.*/
+    flex-wrap: wrap;
+    gap: 3em;
+    padding: 0;
+    margin: 1.2em;
+    list-style: none;
+}
+
+.iconoshabil li {
+    font-size: 2.5em;
+    color: rgb(162 202 168); 
+}
+
+.iconoshabil li:hover {
+    /*He puesto que los iconos crezan un poquito y cambien de color 
+    al pasar el cursor por encima, para destacarlos un poco.*/
+    transform: scale(1.1);
+    color: rgb(212, 81, 125);
+}
+
+/*FORMULARIO DE CONTACTO*/
+.contenedorformulario {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.textoformu{
+    color:rgb(59, 59, 59);
+}
+
+.textoformu a{
+    color: rgb(212, 81, 125);
+}
+
+.formulario-contacto {
+    background-color:rgb(209 209 209);
+    color: rgb(59, 59, 59);
+    padding: 2em;
+    /*He puesto un ancho con píxeles máximo para que se viera proporcionado,
+    aunque siempre que he podido, prefiero usar em para que nada quede demasiado
+    grande o pequeño al variar el tamaño del navegador.*/
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    /*Esto crea un espacio uniforme entre todos los elementos que sean hijos
+    de este contenedor, y así quedan mejor colocados y espaciados entre sí*/
+    gap: 1.6em;
+}
+
+.formulario-contacto .form-row {
+    display: flex;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+
+.formulario-contacto .form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.formulario-contacto label {
+    font-weight: bold;
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea {
+    padding: 0.8em;
+    border: none;
+    font-size: 1em;
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.formulario-contacto textarea {
+    min-height: 120px;
+}
+
+.formulario-contacto button {
+    padding: 0.8em;
+    font-size: 1em;
+    background-color: rgb(74, 106, 79);
+    color: white;
+    border: none;
+    font-weight: bold;
+    /*Esto para que se ponga una manita al pasar el cursor por el botón*/
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+}
+
+.formulario-contacto button:hover {
+    background-color:rgb(222, 143, 168);
+}
+
+/* PORTFOLIO*/
+.contenedorporfolio {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em 1em;
+}
+.portfolioorden {
+    display: grid;
+    /*Como necesitaba que los elementos se pusieran en
+    columna al estrechar el navegador, hice una búsqueda para ver
+    qué podía usar, con esta configuración, el diseño
+    responde bien al estrechar la vista
+    se repite un patrón de columnas en función del espacio disponible,
+    con un tamaño mínimo de columna de 220px y un máximo que se
+    expresa como una fracción del espacio que queda.
+    */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2em;
+    width: 100%;
+    max-width: 1000px;
+    padding: 1em;
+}
+
+.portfolioelemnto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    background-color: rgb(162, 202, 168);
+    color: rgb(59, 59, 59);
+    padding: 2em;
+    height: 14em;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/*Esto sirve para que los colores vayan alternándose en los recuadros,
+los pares son rosas, a diferencia de la base, que siempre es verde claro.*/
+.portfolioelemnto:nth-child(even) {
+    background-color: rgb(222, 143, 168);
+}
+
+.portfolioelemnto:hover {
+    transform: scale(1.05);
+    background-color: lightgray;
+}
+
+.portfolioelemnto ion-icon {
+    font-size: 2.5em;
+    margin-bottom: 0.6em;
+    color: rgb(59, 59, 59);
+}
+
+.portfolio-item p {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: rgb(59, 59, 59);
+}
+
+
+/*CODIGO PARA APARTADO RESPONSIVE*/
+/*Esta parte me ha costado mucho, intenté usar los ejemplos de Raúl tal cual, adaptándolos
+y no funcionaban, así que he tenido que ir haciendo un corta pega de trozos que veía que
+funcionaban, ajustando márgenes y propiedades poco a poco, y buscar ejemplos a mayores que
+pudieran dar un resultado.
+Esto se ha debido sobre todo a la falta de tiempo y a que apenas hemos tratado esto en el
+trimestre, y los pauntes de Reaúl se nos han proporcionado casi al final,
+ así que no tengo práctica en ello y ha sido de nuevo un ejercicio de ensayo y error.
+ Al probarlo en mis navegadores parece que funciona bastante bien, pero ha sido muy frustrante
+ llegar al punto de que todo se coloque de forma medio decente.
+ 
+ También quise incluir un menú hamburguesa, pero ne sido capaz de conseguirlo, ni
+ siquiera siguiendo el ejemplo de Raúl, así que he optado porque el menú se alinee en
+ columna y sea visible.
+ No es una solución óptima , pero permite navegar por la página.*/
+@media (max-width: 992px) {
+    .contenedorprincipal {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding: 1.5em;
+        margin-top: 3em;
+    }
+
+    .contenedorcontenido {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .cajaizquierda,
+    .cajaderecha {
+        width: 100%;
+        padding: 1em;
+        text-align: center;
+    }
+
+    .cajaderecha img {
+        max-width: 80%;
+        height: auto;
+        margin-top: 1em;
+    }
+
+    .copyright,
+    .atribution {
+        text-align: center;
+        width: 100%;
+        margin-top: 2em;
+    }
+
+    .atribution a {
+        font-size: 0.9em;
+        color: #ccc;
+    }
+
+    .contenedorcontenidoaboutme {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cajaderechaaboutme {
+        padding: 1em;
+    }
+
+    .cvformato {
+        display: flex;
+        flex-direction: column;
+      }
+    
+      .cvizq,
+      .cvderch {
+        width: 100%;
+        padding: 1.5em 1em;
+      }
+    
+      .iconoshabil {
+        justify-content: center;
+        gap: 2em;
+      }
+
+      .formulario-contacto .form-row {
+        flex-direction: column;
+    }
+
+    .formulario-contacto {
+        padding: 1.2em;
+    }
+}
+
+
+@media (max-width: 576px) {
+
+    .contenedorprincipal {
+        padding: 1em;
+        height: auto;
+        margin-top: 1em;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+        padding-top: 20px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .navbar li a {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+        font-size: 1em;
+    }
+
+    .contenedorcontenido {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cajaizquierda,
+    .cajaderecha {
+        width: 100%;
+        padding: 1em;
+        text-align: center;
+    }
+
+    .cajaderecha img {
+        max-width: 90%;
+        height: auto;
+        margin: 1em auto 0;
+        display: block;
+    }
+
+    .socials {
+        justify-content: center;
+    }
+
+    .copyright,
+    .atribution {
+        text-align: center;
+        width: 100%;
+        margin-top: 1.5em;
+    }
+
+    .atribution a {
+        font-size: 0.8em;
+    }
+
+    .cajaderechaaboutme h1 {
+        font-size: 1.6em;
+    }
+
+    .cajaderechaaboutme h2 {
+        font-size: 1.3em;
+    }
+
+    .cajaderechaaboutme p {
+        font-size: 1em;
+    }
+
+    .cvizq,
+    .cvderch {
+      padding: 1em 0.8em;
+    }
+  
+    .cvpresentacion h2 {
+      font-size: 1.2em;
+    }
+  
+    .iconoshabil li {
+      font-size: 2em;
+    }
+  
+    .formexp .recuadr {
+      flex-direction: column;
+    }
+  
+    .formexp .recuadr .aniolugar {
+      margin-right: 0;
+      margin-bottom: 0.5em;
+    }
+  
+    .formexp .recuadr .text h4 {
+      font-size: 1em;
+    }
+}
+
+
+/*
+Aquí he ido anontando colores básicos mi paleta, 
+para tener la referencia para reutilizarlos y combinarlos con facilidad
+también he usado algún otro más genérico en la web, pero estos eran la base.
+
+verde oscuro
+color: rgb(74, 106, 79); 
+
+verde matcha
+rgb(162 202 168);
+
+matcha pálido
+color: rgb(162, 202, 168);
+
+
+gris oscuro
+rgb(59, 59, 59)
+
+gris pálido
+color: rgb(209 209 209);
+
+
+rosa claro
+rgb(222, 143, 168);
+
+frambuesa:
+rgb(212, 81, 125);
+
+*/

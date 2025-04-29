@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <meta name="author" content="Patricia Victoria Sanz Lopez">
+
+    <link rel="icon" href="./assets/matcha-latte.png" type="image/png" alt="Icono Sitio Web PVSL">
+
+    <!--Libreria iconos web https://ionic.io -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <title>PVSL - Desarrolladora Web</title>
+
+</head>
+
+<!-- Para el diseño general, he tomado como base el ejemplo de Landing Page de Raúl en Youtube.
+    He perferido incluir la barra de navegación dentro de mi contenedor principal, por diseño,
+    en lugar de dejarla arriba del todo.
+    Mi apuesta es por un look minimalista, con una paleta de color limitada y definida en tonos
+    de té verde y rosas, con el gris típico del modo oscuro de las aplicaciones como tono neutro. 
+    -->
+
+<body>
+    <section>
+        <!--CONTENEDOR PRINCIPAL (COLOR GRIS)-->
+        <div class="contenedorprincipal">
+
+            <!--HEADER Y BARRA DE NAVEGACIÓN-->
+            <header>
+                <!--logotipo con iniciales-->
+                <a href="#" class="logo">PV<span>SL</span></a>
+                <!-- MENÚ DE NAVEGACIÓN -->
+                <nav>
+                    <ul class="navbar">
+                        <li>
+                            <a href="#" class="seccionactiva" class="navhome">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="aboutme.html" class="navaboutme">Sobre mi</a>
+                        </li>
+                        <li>
+                            <a href="mycv.html" class="navresume">CV</a>
+                        </li>
+                        <li>
+                            <a href="portfolio.html" class="navportfolio">Proyectos</a>
+                        </li>
+                        <li>
+                            <a href="contacto.html" class="navcontactform">Contacto</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </header>
+
+            <!-- CONTENEDOR GENERAL -->
+            <div class="contenedorcontenido">
+
+                <!--CAJA IZQUIERDA: PRESENTACIÓN Y BOTON-->
+                <div class="cajaizquierda">
+
+                    <h1>Patricia V. Sanz</h1>
+
+                    <h2>
+                        Desarrolladora y Diseñadora <span>Web</span>
+                    </h2>
+
+                    <p class="quote">
+                        Soluciones digitales que hablan claro: menos ruido, más resultados.
+                    </p>
+
+                    <a href="contacto.html" class="botonhablemos">¿Hablamos?</a>
+
+                    <!--CAJA IZQ INFERIOR (REDES)-->
+                    <div class="socials">
+                        <ul>
+                            <li><a href="https://github.com/pvicSL" target="_blank"><ion-icon
+                                        name="logo-github"></ion-icon></a></li>
+                            <li><a href="https://wa.me/34650468027" target="_blank"><ion-icon
+                                        name="logo-whatsapp"></ion-icon></a></li>
+                            <li><a href="https://www.linkedin.com/in/patricia-victoria-sanz-lópez-847988303"
+                                    target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!--CAJA DERECHA: IMG DE BIENVENIDA-->
+                <div class="cajaderecha">
+                    <img src="./img/landinghandspink.png" alt="Imagen de bienvenida al sitio web">
+                </div>
+
+            </div>
+
+            <!--COPYRIGHT-->
+            <footer class="copyright">
+                <p>Landing Page creada para la materia de Lenguajes de Marcas (DAW - UNIR).</p>
+            </footer>
+
+            <!-- Atribución de assets -->
+            <div class="atribution">
+                <a href="https://www.flaticon.com/free-icons/matcha" title="matcha icons">Matcha icons created by Steven
+                    Edward Simanjuntak - Flaticon</a>
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>

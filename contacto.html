@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <meta name="author" content="Patricia Victoria Sanz Lopez">
+
+    <link rel="icon" href="./assets/matcha-latte.png" type="image/png" alt="Icono Sitio Web PVSL">
+
+    <!--Libreria iconos web https://ionic.io -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <title>PVSL - Contacto</title>
+
+</head>
+
+<body>
+    <section>
+        <!--CONTENEDOR PRINCIPAL (COLOR GRIS)-->
+        <div class="contenedorprincipal">
+
+            <!--HEADER-->
+            <header>
+
+                <a href="#" class="logo">PV<span>SL</span></a>
+
+                <nav>
+                    <ul class="navbar">
+                        <li>
+                            <a href="index.html" class="navhome">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="aboutme.html" class="navaboutme">Sobre mi</a>
+                        </li>
+                        <li>
+                            <a href="mycv.html" class="navresume">CV</a>
+                        </li>
+                        <li>
+                            <a href="portfolio.html" class="navportfolio">Proyectos</a>
+                        </li>
+                        <li>
+                            <a href="#" class="seccionactiva" class="navcontactform">Contacto</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </header>
+
+            <!-- CONTENEDOR GENERAL DENTRO DEL RECUADRO GRIS -->
+            <div class="contenedorformulario">
+
+                <!--CONTENEDOR ESPECIFICO PARA FORMULARIO-->
+                <form class="formulario-contacto" action="https://formsubmit.co/pvsanzlopez@gmail.com" method="post"
+                    enctype="multipart/form-data">
+
+                    <h2>
+                        <ion-icon name="send-outline"></ion-icon>
+                        Envía tu consulta y responderé lo antes posible:
+                    </h2>
+
+                    <p class="textoformu">O escríbeme directamente a:
+                        <a href="mailto:pvsanzlopez@gmail.com">pvsanzlopez@gmail.com</a>
+                    </p>
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="nombre">Nombre y apellidos</label>
+                            <input type="text" name="nombreape" placeholder="Nombre y apellidos aquí" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input id="input-long" type="email" name="useremail" placeholder="correo@ejemplo.es"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="form-group mensaje">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="input-comment" name="comentarios" rows="10"
+                            placeholder="Escribe aquí tu mensaje, máx. 500 caracteres." maxlength="500"></textarea>
+                    </div>
+
+                    <!--REDIRECCIÓN A INDEX DESPUÉS DE ENVIAR EL FORMULARIO -->
+                    <input type="hidden" name="_next" value="index.html">
+
+                    <button type="submit">Enviar mensaje</button>
+
+            </div>
+
+            <!--COPYRIGHT-->
+            <footer class="copyright">
+                <p>Landing Page creada para la materia de Lenguajes de Marcas (DAW - UNIR).</p>
+            </footer>
+            <div class="atribution">
+                <a href="https://www.flaticon.com/free-icons/matcha" title="matcha icons">Matcha icons created by Steven
+                    Edward Simanjuntak - Flaticon</a>
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>
